@@ -23,7 +23,7 @@ public class CkmioClient
     public final static String Add = "Add";
     public final static String Authenticate = "authenticate";
     public final static String Subscribe = "subscribe";
-    public final static String Address = "dev.ckmio.com";
+    public final static String Address = "ckmio.com";
     public static final int PORT = 7023;
     private byte[] buffer = new byte[2048];
     public String planKey ;
