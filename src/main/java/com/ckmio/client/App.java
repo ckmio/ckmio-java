@@ -15,7 +15,7 @@ public class App
        ckmio.subscribeToTopic(topicName);
        ckmio.funnel(streamName, new FunnelCondition[]{new FunnelCondition("age", "greater_than", 40)});
        ckmio.setFunnelHandler((data)-> System.out.println("Funnel Update " + data.content ));
-       ckmio.setChatHandler((message)-> System.out.println("Message Update " + message.from));
+       ckmio.setChatHandler((message)-> System.out.println("Message Update " + message.from + "\n and message content is :"+ message.content));
        ckmio.setTopicHandler((topicUpdate)-> System.out.println("Message Update " + topicUpdate.content));
 
        ckmio.send("Khady", "Hello");
