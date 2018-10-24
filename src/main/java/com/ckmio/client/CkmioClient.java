@@ -64,7 +64,7 @@ public class CkmioClient
     public void connect()
     {
         try {
-            Socket socket = new Socket("dev.ckmio.com", PORT);       
+            Socket socket = new Socket(Address, PORT);       
             this.connection = socket; 
             this.outputStream = connection.getOutputStream();
             authenticate();
