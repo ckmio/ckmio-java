@@ -1,10 +1,10 @@
 com/ckmio/client/FunnelCondition.class
 com/ckmio/client/App.class
-com/ckmio/client/Response.class
-com/ckmio/client/ExchangeMessage.class
 com/ckmio/client/TopicMessagePart.class
 com/ckmio/client/ChatMessagePart.class
 com/ckmio/client/FunnelMessagePart.class
+com/ckmio/client/Response.class
+com/ckmio/client/ExchangeMessage.class
 com/ckmio/client/AuthMessagePart.class
 com/ckmio/client/Handler.class
 com/ckmio/client/CkmioClient$1.class
