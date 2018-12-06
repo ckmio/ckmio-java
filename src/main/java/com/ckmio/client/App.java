@@ -20,6 +20,11 @@ public class App
 
        ckmio.send("Khady", "Hello");
        ckmio.updateTopic(topicName, "Topic Update");
+       ckmio.updateTopic(topicName, "Topic Update");
+       ckmio.updateTopic(topicName, "Topic Update");
+       ckmio.updateTopic(topicName, "Topic Update");
+       ckmio.updateTopic(topicName, "Topic Update");
+       ckmio.updateTopic(topicName, "Topic Update");
        ckmio.sendToStream(streamName, new HashMap<String, Object>(){ { put("age",60); put("name", "Bob"); put("gender", "Male");}});
        ckmio.sendToStream(streamName, new HashMap<String, Object>(){ { put("age",20); put("name", "Alice"); put("gender", "Female");}});
        Console console = System.console();

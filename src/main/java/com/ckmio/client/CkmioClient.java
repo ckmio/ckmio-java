@@ -93,6 +93,7 @@ public class CkmioClient
         int lengthToRead = 0;
         int read;
         byte[] temp = new byte[4];
+        StringBuilder messageBuilder = new StringBuilder();
         ObjectMapper mapper = new ObjectMapper();
         try{
             InputStream input = connection.getInputStream();
@@ -100,9 +101,16 @@ public class CkmioClient
                 read = input.read(temp, 0, 4);
                 lengthToRead = lengthToReadFromBytes(temp);
                 read = input.read(buffer, 0, lengthToRead);
-                String json = new String(buffer, 0, read);
+                while(read < lengthToRead && read != -1){
+                    messageBuilder.append(new String(buffer, 0, read));
+                    if(this.debug) System.out.println("Broken message : " + messageBuilder.toString());
+                    lengthToRead = lengthToRead -read;
+                    read = input.read(buffer, 0, lengthToRead);
+                }
+                String json = messageBuilder.append(new String(buffer, 0, read)).toString();
                 if(this.debug) System.out.println(json);
                 handleResponse(mapper.readValue(json, Response.class));
+                messageBuilder.delete(0, messageBuilder.length());
             }
         }
         catch(Exception e ){
