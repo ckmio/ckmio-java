@@ -19,12 +19,15 @@ public class App
        ckmio.setTopicHandler((topicUpdate)-> System.out.println("Message Update " + topicUpdate.content));
 
        ckmio.send("Khady", "Hello");
+       int i = 0;
+       for(i=0; i<1000; i++){
        ckmio.updateTopic(topicName, "Topic Update");
        ckmio.updateTopic(topicName, "Topic Update");
        ckmio.updateTopic(topicName, "Topic Update");
        ckmio.updateTopic(topicName, "Topic Update");
        ckmio.updateTopic(topicName, "Topic Update");
        ckmio.updateTopic(topicName, "Topic Update");
+       }
        ckmio.sendToStream(streamName, new HashMap<String, Object>(){ { put("age",60); put("name", "Bob"); put("gender", "Male");}});
        ckmio.sendToStream(streamName, new HashMap<String, Object>(){ { put("age",20); put("name", "Alice"); put("gender", "Female");}});
        Console console = System.console();

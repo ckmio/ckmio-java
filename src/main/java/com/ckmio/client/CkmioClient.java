@@ -98,7 +98,11 @@ public class CkmioClient
         try{
             InputStream input = connection.getInputStream();
             while(true){
-                read = input.read(temp, 0, 4);
+                for(int i =0; i< 4; i++) {
+                    read = input.read(buffer, 0, 1);
+                    temp[i] = buffer[0]; 
+                    if (read == -1) i--;
+                }
                 lengthToRead = lengthToReadFromBytes(temp);
                 read = input.read(buffer, 0, lengthToRead);
                 while(read < lengthToRead && read != -1){
@@ -107,6 +111,9 @@ public class CkmioClient
                     lengthToRead = lengthToRead -read;
                     read = input.read(buffer, 0, lengthToRead);
                 }
+                if(read == -1)
+                    continue;
+                if(this.debug) System.out.println("read : "+ read +  ", lengthtoRead: "+ lengthToRead);
                 String json = messageBuilder.append(new String(buffer, 0, read)).toString();
                 if(this.debug) System.out.println(json);
                 handleResponse(mapper.readValue(json, Response.class));
